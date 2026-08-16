@@ -1,0 +1,6 @@
+import pandas as pd
+from abc import ABC
+
+class BaseModel(ABC):
+    def predict(self, input_df: pd.DataFrame) -> pd.DataFrame: ...
+    def metadata(self) -> dict: ...
