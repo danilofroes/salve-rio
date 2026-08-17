@@ -57,3 +57,20 @@ venv.bak/
 
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
+
+# Node / React
+node_modules/
+frontend/dist/
+frontend/build/
+
+# Data
+data/raw/
+data/processed/
+*.csv
+*.zip
+
+# Models fiting
+ml/models/**/*.joblib
+
+# Docker / infra
+*.log
