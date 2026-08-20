@@ -1,4 +1,8 @@
 from fastapi import FastAPI
+from backend.database.base import engine
+from backend.database import models
+
+models.Base.metadata.create_all(bind=engine) # Transforma os modelos criados em tabelas no Postgres
 
 # Inicialização da FastAPI
 app = FastAPI(
