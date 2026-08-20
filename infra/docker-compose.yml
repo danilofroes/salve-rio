@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: salve_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-salve}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-salve_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-salve}
+    ports:
+      - "5432:5432"
+    volumes:
+      - salve_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-salve}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  salve_pgdata:
